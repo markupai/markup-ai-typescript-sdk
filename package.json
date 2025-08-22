@@ -1,8 +1,9 @@
 {
-    "name": "markup-ai-api",
-    "version": "0.0.5",
+    "name": "@markupai/api",
+    "version": "0.0.6",
     "private": false,
     "repository": "https://github.com/markupai/markup-ai-typescript-sdk",
+    "license": "Apache-2.0",
     "main": "./index.js",
     "types": "./index.d.ts",
     "scripts": {

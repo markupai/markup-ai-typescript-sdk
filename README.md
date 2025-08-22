@@ -1,14 +1,14 @@
 # MarkupAi TypeScript Library
 
 [![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Fmarkupai%2Fmarkup-ai-typescript-sdk)
-[![npm shield](https://img.shields.io/npm/v/markup-ai-api)](https://www.npmjs.com/package/markup-ai-api)
+[![npm shield](https://img.shields.io/npm/v/@markupai/api)](https://www.npmjs.com/package/@markupai/api)
 
-The MarkupAi TypeScript library provides convenient access to the MarkupAi API from TypeScript.
+The official Markup AI SDK for interacting with the Markup AI API.
 
 ## Installation
 
 ```sh
-npm i -s markup-ai-api
+npm i -s @markupai/api
 ```
 
 ## Reference
@@ -20,7 +20,7 @@ A full reference for this library is available [here](https://github.com/markupa
 Instantiate and use the client with the following:
 
 ```typescript
-import { MarkupAIClient } from "markup-ai-api";
+import { MarkupAIClient } from "@markupai/api";
 import * as fs from "fs";
 
 const client = new MarkupAIClient({ token: "YOUR_TOKEN" });
@@ -33,7 +33,7 @@ The SDK exports all request and response types as TypeScript interfaces. Simply 
 following namespace:
 
 ```typescript
-import { MarkupAI } from "markup-ai-api";
+import { MarkupAI } from "@markupai/api";
 
 const request: MarkupAI.StyleGuideRequestBody = {
     ...
@@ -46,7 +46,7 @@ When the API returns a non-success status code (4xx or 5xx response), a subclass
 will be thrown.
 
 ```typescript
-import { MarkupAIError } from "markup-ai-api";
+import { MarkupAIError } from "@markupai/api";
 
 try {
     await client.styleGuides.createStyleGuide(...);
@@ -146,7 +146,7 @@ The SDK provides a way for you to customize the underlying HTTP client / Fetch f
 unsupported environment, this provides a way for you to break glass and ensure the SDK works.
 
 ```typescript
-import { MarkupAIClient } from "markup-ai-api";
+import { MarkupAIClient } from "@markupai/api";
 
 const client = new MarkupAIClient({
     ...
