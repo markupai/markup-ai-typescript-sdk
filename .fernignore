@@ -1,1 +1,4 @@
 # Specify files that shouldn't be modified by Fern
+
+# Documentation - preserve custom README content
+README.md
