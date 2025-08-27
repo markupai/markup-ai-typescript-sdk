@@ -343,7 +343,7 @@ await client.styleGuides.updateStyleGuide("style_guide_id", {
 <dl>
 <dd>
 
-Start a style and brand check workflow. Returns a workflow ID to use for polling results.
+Analyze text for grammar, style, and clarity issues.
 
 </dd>
 </dl>
@@ -417,7 +417,7 @@ await client.styleChecks.createStyleCheck(fs.createReadStream("/path/to/your/fil
 <dl>
 <dd>
 
-Retrieve the results of a style and brand check workflow. Returns `running` or `complete` status.
+Retrieve style check results.
 
 </dd>
 </dl>
@@ -482,7 +482,7 @@ await client.styleChecks.getStyleCheck("workflow_id");
 <dl>
 <dd>
 
-Start a style and brand suggestion workflow. Returns a workflow ID to use for polling results.
+Get suggested corrections for text.
 
 </dd>
 </dl>
@@ -556,7 +556,7 @@ await client.styleSuggestions.createStyleSuggestion(fs.createReadStream("/path/t
 <dl>
 <dd>
 
-Retrieve the results of a style and brand suggestion workflow. Returns `running` or `complete` status.
+Retrieve suggestion results.
 
 </dd>
 </dl>
@@ -621,7 +621,7 @@ await client.styleSuggestions.getStyleSuggestion("workflow_id");
 <dl>
 <dd>
 
-Start a style and brand rewrite workflow. Returns a workflow ID to use for polling results.
+Rewrite text with style corrections applied.
 
 </dd>
 </dl>
@@ -695,7 +695,7 @@ await client.styleRewrites.createStyleRewrite(fs.createReadStream("/path/to/your
 <dl>
 <dd>
 
-Retrieve the results of a rewrite workflow. Returns `running` or `complete` status.
+Retrieve rewrite results.
 
 </dd>
 </dl>

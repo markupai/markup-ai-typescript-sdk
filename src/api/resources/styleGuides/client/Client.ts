@@ -71,8 +71,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@markupai/api/0.1.0",
+                "X-Fern-SDK-Version": "0.1.1",
+                "User-Agent": "@markupai/api/0.1.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -90,7 +90,10 @@ export class StyleGuides {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 401:
-                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new MarkupAI.UnauthorizedError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 403:
                     throw new MarkupAI.ForbiddenError(
                         _response.error.body as MarkupAI.ErrorResponse,
@@ -176,8 +179,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@markupai/api/0.1.0",
+                "X-Fern-SDK-Version": "0.1.1",
+                "User-Agent": "@markupai/api/0.1.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ..._maybeEncodedRequest.headers,
@@ -197,7 +200,10 @@ export class StyleGuides {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 401:
-                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new MarkupAI.UnauthorizedError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 403:
                     throw new MarkupAI.ForbiddenError(
                         _response.error.body as MarkupAI.ErrorResponse,
@@ -279,8 +285,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@markupai/api/0.1.0",
+                "X-Fern-SDK-Version": "0.1.1",
+                "User-Agent": "@markupai/api/0.1.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -298,7 +304,10 @@ export class StyleGuides {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 401:
-                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new MarkupAI.UnauthorizedError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 403:
                     throw new MarkupAI.ForbiddenError(
                         _response.error.body as MarkupAI.ErrorResponse,
@@ -382,8 +391,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@markupai/api/0.1.0",
+                "X-Fern-SDK-Version": "0.1.1",
+                "User-Agent": "@markupai/api/0.1.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -401,7 +410,10 @@ export class StyleGuides {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 401:
-                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new MarkupAI.UnauthorizedError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 403:
                     throw new MarkupAI.ForbiddenError(
                         _response.error.body as MarkupAI.ErrorResponse,
@@ -490,8 +502,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@markupai/api/0.1.0",
+                "X-Fern-SDK-Version": "0.1.1",
+                "User-Agent": "@markupai/api/0.1.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -510,7 +522,10 @@ export class StyleGuides {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 401:
-                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new MarkupAI.UnauthorizedError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 403:
                     throw new MarkupAI.ForbiddenError(
                         _response.error.body as MarkupAI.ErrorResponse,
