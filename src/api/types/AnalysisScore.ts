@@ -4,7 +4,7 @@
 
 import * as MarkupAI from "../index";
 
-export interface ScoreOutput {
-    quality?: MarkupAI.QualityScore;
-    analysis?: MarkupAI.AnalysisScore;
+export interface AnalysisScore {
+    clarity?: MarkupAI.ClarityScore;
+    tone?: MarkupAI.ToneScore;
 }

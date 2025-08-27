@@ -3,13 +3,11 @@
  */
 
 export interface ClarityScore {
-    average_sentence_length?: number;
-    flesch_kincaid_grade?: number;
-    flesch_reading_ease?: number;
-    lexical_diversity?: number;
     score?: number;
+    flesch_reading_ease?: number;
     sentence_complexity?: number;
-    sentence_count?: number;
     vocabulary_complexity?: number;
+    sentence_count?: number;
     word_count?: number;
+    average_sentence_length?: number;
 }

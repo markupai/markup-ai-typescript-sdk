@@ -8,15 +8,14 @@ import * as MarkupAI from "../../../../index";
  * @example
  *     {
  *         dialect: "american_english",
- *         tone: "academic",
  *         style_guide: "style_guide"
  *     }
  */
-export interface StyleRewritesCreateStyleRewriteRequest {
+export interface CreateStyleSuggestionV1StyleSuggestionsPostRequest {
     /** The language variant you'd like us to use for analysis. Choose from American English, British English, or other supported dialects. */
     dialect: MarkupAI.Dialects;
     /** The tone variation you're aiming for. Options include formal, academic, casual, and other tone variations to match your content goals. */
-    tone: MarkupAI.Tones;
+    tone?: MarkupAI.Tones;
     /** The style guide to follow for your content. You can use a style guide ID or choose from built-in options: `ap`, `chicago`, or `microsoft`. */
     style_guide: string;
     /** A URL that results will be POSTed to once the process completes. */

@@ -85,7 +85,9 @@ Create a new style guide that can be used in checks, suggestions, and rewrites.
 <dd>
 
 ```typescript
-await client.styleGuides.createStyleGuide(fs.createReadStream("/path/to/your/file"), {});
+await client.styleGuides.createStyleGuide(fs.createReadStream("/path/to/your/file"), {
+    name: "name",
+});
 ```
 
 </dd>
@@ -308,7 +310,7 @@ await client.styleGuides.updateStyleGuide("style_guide_id", {
 <dl>
 <dd>
 
-**request:** `MarkupAI.BodyStyleGuidesUpdateStyleGuide`
+**request:** `MarkupAI.BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch`
 
 </dd>
 </dl>
@@ -359,7 +361,6 @@ Start a style and brand check workflow. Returns a workflow ID to use for polling
 ```typescript
 await client.styleChecks.createStyleCheck(fs.createReadStream("/path/to/your/file"), {
     dialect: "american_english",
-    tone: "academic",
     style_guide: "style_guide",
 });
 ```
@@ -385,7 +386,7 @@ await client.styleChecks.createStyleCheck(fs.createReadStream("/path/to/your/fil
 <dl>
 <dd>
 
-**request:** `MarkupAI.StyleChecksCreateStyleCheckRequest`
+**request:** `MarkupAI.CreateStyleCheckV1StyleChecksPostRequest`
 
 </dd>
 </dl>
@@ -499,7 +500,6 @@ Start a style and brand suggestion workflow. Returns a workflow ID to use for po
 ```typescript
 await client.styleSuggestions.createStyleSuggestion(fs.createReadStream("/path/to/your/file"), {
     dialect: "american_english",
-    tone: "academic",
     style_guide: "style_guide",
 });
 ```
@@ -525,7 +525,7 @@ await client.styleSuggestions.createStyleSuggestion(fs.createReadStream("/path/t
 <dl>
 <dd>
 
-**request:** `MarkupAI.StyleSuggestionsCreateStyleSuggestionRequest`
+**request:** `MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest`
 
 </dd>
 </dl>
@@ -639,7 +639,6 @@ Start a style and brand rewrite workflow. Returns a workflow ID to use for polli
 ```typescript
 await client.styleRewrites.createStyleRewrite(fs.createReadStream("/path/to/your/file"), {
     dialect: "american_english",
-    tone: "academic",
     style_guide: "style_guide",
 });
 ```
@@ -665,7 +664,7 @@ await client.styleRewrites.createStyleRewrite(fs.createReadStream("/path/to/your
 <dl>
 <dd>
 
-**request:** `MarkupAI.StyleRewritesCreateStyleRewriteRequest`
+**request:** `MarkupAI.CreateStyleRewriteV1StyleRewritesPostRequest`
 
 </dd>
 </dl>

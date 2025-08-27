@@ -3,7 +3,7 @@
  */
 
 export const MarkupAIEnvironment = {
-    Production: "https://app.acrolinx.cloud",
+    Default: "https://api.markup.ai",
 } as const;
 
-export type MarkupAIEnvironment = typeof MarkupAIEnvironment.Production;
+export type MarkupAIEnvironment = typeof MarkupAIEnvironment.Default;

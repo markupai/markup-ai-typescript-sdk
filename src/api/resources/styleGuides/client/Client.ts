@@ -42,6 +42,8 @@ export class StyleGuides {
      *
      * @param {StyleGuides.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link MarkupAI.UnauthorizedError}
+     * @throws {@link MarkupAI.ForbiddenError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
      *
@@ -61,7 +63,7 @@ export class StyleGuides {
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.MarkupAIEnvironment.Production,
+                    environments.MarkupAIEnvironment.Default,
                 "v1/style-guides",
             ),
             method: "GET",
@@ -69,8 +71,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.0.6",
-                "User-Agent": "@markupai/api/0.0.6",
+                "X-Fern-SDK-Version": "0.1.0",
+                "User-Agent": "@markupai/api/0.1.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -87,6 +89,13 @@ export class StyleGuides {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 401:
+                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                case 403:
+                    throw new MarkupAI.ForbiddenError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 422:
                     throw new MarkupAI.UnprocessableEntityError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
@@ -127,11 +136,16 @@ export class StyleGuides {
      * @param {MarkupAI.StyleGuideRequestBody} request
      * @param {StyleGuides.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link MarkupAI.UnauthorizedError}
+     * @throws {@link MarkupAI.ForbiddenError}
+     * @throws {@link MarkupAI.ContentTooLargeError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
      *
      * @example
-     *     await client.styleGuides.createStyleGuide(fs.createReadStream("/path/to/your/file"), {})
+     *     await client.styleGuides.createStyleGuide(fs.createReadStream("/path/to/your/file"), {
+     *         name: "name"
+     *     })
      */
     public createStyleGuide(
         file_upload: File | fs.ReadStream | Blob,
@@ -148,16 +162,13 @@ export class StyleGuides {
     ): Promise<core.WithRawResponse<MarkupAI.StyleGuideResponse>> {
         const _request = await core.newFormData();
         await _request.appendFile("file_upload", file_upload);
-        if (request.name != null) {
-            _request.append("name", request.name);
-        }
-
+        _request.append("name", request.name);
         const _maybeEncodedRequest = await _request.getRequest();
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.MarkupAIEnvironment.Production,
+                    environments.MarkupAIEnvironment.Default,
                 "v1/style-guides",
             ),
             method: "POST",
@@ -165,8 +176,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.0.6",
-                "User-Agent": "@markupai/api/0.0.6",
+                "X-Fern-SDK-Version": "0.1.0",
+                "User-Agent": "@markupai/api/0.1.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ..._maybeEncodedRequest.headers,
@@ -185,6 +196,18 @@ export class StyleGuides {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 401:
+                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                case 403:
+                    throw new MarkupAI.ForbiddenError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 413:
+                    throw new MarkupAI.ContentTooLargeError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 422:
                     throw new MarkupAI.UnprocessableEntityError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
@@ -224,6 +247,9 @@ export class StyleGuides {
      * @param {string} styleGuideId - The ID of the style guide.
      * @param {StyleGuides.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link MarkupAI.UnauthorizedError}
+     * @throws {@link MarkupAI.ForbiddenError}
+     * @throws {@link MarkupAI.NotFoundError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
      *
@@ -245,7 +271,7 @@ export class StyleGuides {
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.MarkupAIEnvironment.Production,
+                    environments.MarkupAIEnvironment.Default,
                 `v1/style-guides/${encodeURIComponent(styleGuideId)}`,
             ),
             method: "GET",
@@ -253,8 +279,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.0.6",
-                "User-Agent": "@markupai/api/0.0.6",
+                "X-Fern-SDK-Version": "0.1.0",
+                "User-Agent": "@markupai/api/0.1.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -271,6 +297,18 @@ export class StyleGuides {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 401:
+                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                case 403:
+                    throw new MarkupAI.ForbiddenError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 404:
+                    throw new MarkupAI.NotFoundError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 422:
                     throw new MarkupAI.UnprocessableEntityError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
@@ -312,6 +350,9 @@ export class StyleGuides {
      * @param {string} styleGuideId - The ID of the style guide.
      * @param {StyleGuides.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link MarkupAI.UnauthorizedError}
+     * @throws {@link MarkupAI.ForbiddenError}
+     * @throws {@link MarkupAI.NotFoundError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
      *
@@ -333,7 +374,7 @@ export class StyleGuides {
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.MarkupAIEnvironment.Production,
+                    environments.MarkupAIEnvironment.Default,
                 `v1/style-guides/${encodeURIComponent(styleGuideId)}`,
             ),
             method: "DELETE",
@@ -341,8 +382,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.0.6",
-                "User-Agent": "@markupai/api/0.0.6",
+                "X-Fern-SDK-Version": "0.1.0",
+                "User-Agent": "@markupai/api/0.1.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -359,6 +400,18 @@ export class StyleGuides {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 401:
+                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                case 403:
+                    throw new MarkupAI.ForbiddenError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 404:
+                    throw new MarkupAI.NotFoundError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 422:
                     throw new MarkupAI.UnprocessableEntityError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
@@ -398,10 +451,12 @@ export class StyleGuides {
      * Update the name of an existing style guide.
      *
      * @param {string} styleGuideId - The ID of the style guide.
-     * @param {MarkupAI.BodyStyleGuidesUpdateStyleGuide} request
+     * @param {MarkupAI.BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch} request
      * @param {StyleGuides.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link MarkupAI.UnauthorizedError}
      * @throws {@link MarkupAI.ForbiddenError}
+     * @throws {@link MarkupAI.NotFoundError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
      *
@@ -412,7 +467,7 @@ export class StyleGuides {
      */
     public updateStyleGuide(
         styleGuideId: string,
-        request: MarkupAI.BodyStyleGuidesUpdateStyleGuide,
+        request: MarkupAI.BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch,
         requestOptions?: StyleGuides.RequestOptions,
     ): core.HttpResponsePromise<MarkupAI.StyleGuideResponse> {
         return core.HttpResponsePromise.fromPromise(this.__updateStyleGuide(styleGuideId, request, requestOptions));
@@ -420,14 +475,14 @@ export class StyleGuides {
 
     private async __updateStyleGuide(
         styleGuideId: string,
-        request: MarkupAI.BodyStyleGuidesUpdateStyleGuide,
+        request: MarkupAI.BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch,
         requestOptions?: StyleGuides.RequestOptions,
     ): Promise<core.WithRawResponse<MarkupAI.StyleGuideResponse>> {
         const _response = await (this._options.fetcher ?? core.fetcher)({
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.MarkupAIEnvironment.Production,
+                    environments.MarkupAIEnvironment.Default,
                 `v1/style-guides/${encodeURIComponent(styleGuideId)}`,
             ),
             method: "PATCH",
@@ -435,8 +490,8 @@ export class StyleGuides {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.0.6",
-                "User-Agent": "@markupai/api/0.0.6",
+                "X-Fern-SDK-Version": "0.1.0",
+                "User-Agent": "@markupai/api/0.1.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -454,8 +509,15 @@ export class StyleGuides {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 401:
+                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
                 case 403:
                     throw new MarkupAI.ForbiddenError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 404:
+                    throw new MarkupAI.NotFoundError(
                         _response.error.body as MarkupAI.ErrorResponse,
                         _response.rawResponse,
                     );

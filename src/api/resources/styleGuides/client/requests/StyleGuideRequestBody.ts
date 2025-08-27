@@ -4,9 +4,11 @@
 
 /**
  * @example
- *     {}
+ *     {
+ *         name: "name"
+ *     }
  */
 export interface StyleGuideRequestBody {
-    /** A friendly name for your style guide to help you identify it later. If left empty, we'll generate one for you. */
-    name?: string;
+    /** A friendly name for your style guide to help you identify it later. */
+    name: string;
 }
