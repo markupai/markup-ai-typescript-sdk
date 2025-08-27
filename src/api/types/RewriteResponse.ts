@@ -5,7 +5,7 @@
 import * as MarkupAI from "../index";
 
 export interface RewriteResponse {
-    workflow_id?: string;
+    workflow_id: string;
     status?: MarkupAI.WorkflowStatus;
     scores?: MarkupAI.ScoreOutput;
     issues?: MarkupAI.Suggestion[];

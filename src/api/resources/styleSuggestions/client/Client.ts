@@ -38,7 +38,7 @@ export class StyleSuggestions {
     constructor(protected readonly _options: StyleSuggestions.Options) {}
 
     /**
-     * Start a style and brand suggestion workflow. Returns a workflow ID to use for polling results.
+     * Get suggested corrections for text.
      *
      * @param {File | fs.ReadStream | Blob} file_upload
      * @param {MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest} request
@@ -94,8 +94,8 @@ export class StyleSuggestions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@markupai/api/0.1.0",
+                "X-Fern-SDK-Version": "0.1.1",
+                "User-Agent": "@markupai/api/0.1.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ..._maybeEncodedRequest.headers,
@@ -115,7 +115,10 @@ export class StyleSuggestions {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 401:
-                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new MarkupAI.UnauthorizedError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 403:
                     throw new MarkupAI.ForbiddenError(
                         _response.error.body as MarkupAI.ErrorResponse,
@@ -160,7 +163,7 @@ export class StyleSuggestions {
     }
 
     /**
-     * Retrieve the results of a style and brand suggestion workflow. Returns `running` or `complete` status.
+     * Retrieve suggestion results.
      *
      * @param {string} workflowId
      * @param {StyleSuggestions.RequestOptions} requestOptions - Request-specific configuration.
@@ -197,8 +200,8 @@ export class StyleSuggestions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.1.0",
-                "User-Agent": "@markupai/api/0.1.0",
+                "X-Fern-SDK-Version": "0.1.1",
+                "User-Agent": "@markupai/api/0.1.1",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -216,7 +219,10 @@ export class StyleSuggestions {
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
                 case 401:
-                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                    throw new MarkupAI.UnauthorizedError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 403:
                     throw new MarkupAI.ForbiddenError(
                         _response.error.body as MarkupAI.ErrorResponse,
