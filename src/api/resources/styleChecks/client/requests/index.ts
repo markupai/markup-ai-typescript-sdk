@@ -1,1 +1,1 @@
-export { type StyleChecksCreateStyleCheckRequest } from "./StyleChecksCreateStyleCheckRequest";
+export { type CreateStyleCheckV1StyleChecksPostRequest } from "./CreateStyleCheckV1StyleChecksPostRequest";

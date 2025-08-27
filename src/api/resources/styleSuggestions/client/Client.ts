@@ -41,9 +41,11 @@ export class StyleSuggestions {
      * Start a style and brand suggestion workflow. Returns a workflow ID to use for polling results.
      *
      * @param {File | fs.ReadStream | Blob} file_upload
-     * @param {MarkupAI.StyleSuggestionsCreateStyleSuggestionRequest} request
+     * @param {MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest} request
      * @param {StyleSuggestions.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link MarkupAI.UnauthorizedError}
+     * @throws {@link MarkupAI.ForbiddenError}
      * @throws {@link MarkupAI.ContentTooLargeError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
@@ -51,13 +53,12 @@ export class StyleSuggestions {
      * @example
      *     await client.styleSuggestions.createStyleSuggestion(fs.createReadStream("/path/to/your/file"), {
      *         dialect: "american_english",
-     *         tone: "academic",
      *         style_guide: "style_guide"
      *     })
      */
     public createStyleSuggestion(
         file_upload: File | fs.ReadStream | Blob,
-        request: MarkupAI.StyleSuggestionsCreateStyleSuggestionRequest,
+        request: MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest,
         requestOptions?: StyleSuggestions.RequestOptions,
     ): core.HttpResponsePromise<MarkupAI.WorkflowResponse> {
         return core.HttpResponsePromise.fromPromise(this.__createStyleSuggestion(file_upload, request, requestOptions));
@@ -65,13 +66,16 @@ export class StyleSuggestions {
 
     private async __createStyleSuggestion(
         file_upload: File | fs.ReadStream | Blob,
-        request: MarkupAI.StyleSuggestionsCreateStyleSuggestionRequest,
+        request: MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest,
         requestOptions?: StyleSuggestions.RequestOptions,
     ): Promise<core.WithRawResponse<MarkupAI.WorkflowResponse>> {
         const _request = await core.newFormData();
         await _request.appendFile("file_upload", file_upload);
         _request.append("dialect", request.dialect);
-        _request.append("tone", request.tone);
+        if (request.tone != null) {
+            _request.append("tone", request.tone);
+        }
+
         _request.append("style_guide", request.style_guide);
         if (request.webhook_url != null) {
             _request.append("webhook_url", request.webhook_url);
@@ -82,7 +86,7 @@ export class StyleSuggestions {
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.MarkupAIEnvironment.Production,
+                    environments.MarkupAIEnvironment.Default,
                 "v1/style/suggestions",
             ),
             method: "POST",
@@ -90,8 +94,8 @@ export class StyleSuggestions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.0.6",
-                "User-Agent": "@markupai/api/0.0.6",
+                "X-Fern-SDK-Version": "0.1.0",
+                "User-Agent": "@markupai/api/0.1.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ..._maybeEncodedRequest.headers,
@@ -110,8 +114,18 @@ export class StyleSuggestions {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 401:
+                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                case 403:
+                    throw new MarkupAI.ForbiddenError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 413:
-                    throw new MarkupAI.ContentTooLargeError(_response.error.body as unknown, _response.rawResponse);
+                    throw new MarkupAI.ContentTooLargeError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 422:
                     throw new MarkupAI.UnprocessableEntityError(_response.error.body as unknown, _response.rawResponse);
                 case 500:
@@ -151,6 +165,8 @@ export class StyleSuggestions {
      * @param {string} workflowId
      * @param {StyleSuggestions.RequestOptions} requestOptions - Request-specific configuration.
      *
+     * @throws {@link MarkupAI.UnauthorizedError}
+     * @throws {@link MarkupAI.ForbiddenError}
      * @throws {@link MarkupAI.NotFoundError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
@@ -173,7 +189,7 @@ export class StyleSuggestions {
             url: urlJoin(
                 (await core.Supplier.get(this._options.baseUrl)) ??
                     (await core.Supplier.get(this._options.environment)) ??
-                    environments.MarkupAIEnvironment.Production,
+                    environments.MarkupAIEnvironment.Default,
                 `v1/style/suggestions/${encodeURIComponent(workflowId)}`,
             ),
             method: "GET",
@@ -181,8 +197,8 @@ export class StyleSuggestions {
                 Authorization: await this._getAuthorizationHeader(),
                 "X-Fern-Language": "JavaScript",
                 "X-Fern-SDK-Name": "@markupai/api",
-                "X-Fern-SDK-Version": "0.0.6",
-                "User-Agent": "@markupai/api/0.0.6",
+                "X-Fern-SDK-Version": "0.1.0",
+                "User-Agent": "@markupai/api/0.1.0",
                 "X-Fern-Runtime": core.RUNTIME.type,
                 "X-Fern-Runtime-Version": core.RUNTIME.version,
                 ...requestOptions?.headers,
@@ -199,6 +215,13 @@ export class StyleSuggestions {
 
         if (_response.error.reason === "status-code") {
             switch (_response.error.statusCode) {
+                case 401:
+                    throw new MarkupAI.UnauthorizedError(_response.error.body as unknown, _response.rawResponse);
+                case 403:
+                    throw new MarkupAI.ForbiddenError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 404:
                     throw new MarkupAI.NotFoundError(
                         _response.error.body as MarkupAI.ErrorResponse,

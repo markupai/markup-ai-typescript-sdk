@@ -14,4 +14,5 @@ export type Subcategory =
     | MarkupAI.SentenceLengthCategory
     | MarkupAI.ToneCategory
     | MarkupAI.StyleGuideCategory
-    | MarkupAI.TermReplaceCategory;
+    | MarkupAI.TermReplaceCategory
+    | MarkupAI.ClarityCategory;

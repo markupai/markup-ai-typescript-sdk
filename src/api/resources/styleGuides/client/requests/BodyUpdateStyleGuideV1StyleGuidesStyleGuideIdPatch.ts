@@ -8,7 +8,7 @@
  *         name: "name"
  *     }
  */
-export interface BodyStyleGuidesUpdateStyleGuide {
+export interface BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch {
     /** The name of the style guide. */
     name: string;
 }

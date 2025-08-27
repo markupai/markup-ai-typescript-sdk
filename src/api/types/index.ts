@@ -1,4 +1,6 @@
+export * from "./AnalysisScore";
 export * from "./CheckOptions";
+export * from "./ClarityCategory";
 export * from "./ClarityScore";
 export * from "./Dialects";
 export * from "./ErrorResponse";

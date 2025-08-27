@@ -1,1 +1,1 @@
-export { type StyleSuggestionsCreateStyleSuggestionRequest } from "./StyleSuggestionsCreateStyleSuggestionRequest";
+export { type CreateStyleSuggestionV1StyleSuggestionsPostRequest } from "./CreateStyleSuggestionV1StyleSuggestionsPostRequest";
