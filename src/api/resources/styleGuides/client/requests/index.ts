@@ -1,2 +1,2 @@
-export { type StyleGuideRequestBody } from "./StyleGuideRequestBody";
-export { type BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch } from "./BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch";
+export { type StyleGuideRequestBody } from "./StyleGuideRequestBody.js";
+export { type BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch } from "./BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch.js";

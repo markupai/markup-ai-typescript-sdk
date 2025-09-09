@@ -21,10 +21,9 @@ Instantiate and use the client with the following:
 
 ```typescript
 import { MarkupAIClient } from "@markupai/api";
-import * as fs from "fs";
 
 const client = new MarkupAIClient({ token: "YOUR_TOKEN" });
-await client.styleGuides.createStyleGuide(fs.createReadStream("/path/to/your/file"), {});
+await client.styleGuides.listStyleGuides();
 ```
 
 ## Request And Response Types
@@ -49,7 +48,7 @@ will be thrown.
 import { MarkupAIError } from "@markupai/api";
 
 try {
-    await client.styleGuides.createStyleGuide(...);
+    await client.styleGuides.listStyleGuides(...);
 } catch (err) {
     if (err instanceof MarkupAIError) {
         console.log(err.statusCode);
@@ -67,9 +66,21 @@ try {
 If you would like to send additional headers as part of the request, use the `headers` request option.
 
 ```typescript
-const response = await client.styleGuides.createStyleGuide(..., {
+const response = await client.styleGuides.listStyleGuides(..., {
     headers: {
         'X-Custom-Header': 'custom value'
+    }
+});
+```
+
+### Additional Query String Parameters
+
+If you would like to send additional query string parameters as part of the request, use the `queryParams` request option.
+
+```typescript
+const response = await client.styleGuides.listStyleGuides(..., {
+    queryParams: {
+        'customQueryParamKey': 'custom query param value'
     }
 });
 ```
@@ -89,7 +100,7 @@ A request is deemed retryable when any of the following HTTP status codes is ret
 Use the `maxRetries` request option to configure this behavior.
 
 ```typescript
-const response = await client.styleGuides.createStyleGuide(..., {
+const response = await client.styleGuides.listStyleGuides(..., {
     maxRetries: 0 // override maxRetries at the request level
 });
 ```
@@ -99,7 +110,7 @@ const response = await client.styleGuides.createStyleGuide(..., {
 The SDK defaults to a 60 second timeout. Use the `timeoutInSeconds` option to configure this behavior.
 
 ```typescript
-const response = await client.styleGuides.createStyleGuide(..., {
+const response = await client.styleGuides.listStyleGuides(..., {
     timeoutInSeconds: 30 // override timeout to 30s
 });
 ```
@@ -110,7 +121,7 @@ The SDK allows users to abort requests at any point by passing in an abort signa
 
 ```typescript
 const controller = new AbortController();
-const response = await client.styleGuides.createStyleGuide(..., {
+const response = await client.styleGuides.listStyleGuides(..., {
     abortSignal: controller.signal
 });
 controller.abort(); // aborts the request
@@ -122,7 +133,7 @@ The SDK provides access to raw response data, including headers, through the `.w
 The `.withRawResponse()` method returns a promise that results to an object with a `data` and a `rawResponse` property.
 
 ```typescript
-const { data, rawResponse } = await client.styleGuides.createStyleGuide(...).withRawResponse();
+const { data, rawResponse } = await client.styleGuides.listStyleGuides(...).withRawResponse();
 
 console.log(data);
 console.log(rawResponse.headers['X-My-Header']);
@@ -130,8 +141,7 @@ console.log(rawResponse.headers['X-My-Header']);
 
 ### Runtime Compatibility
 
-The SDK defaults to `node-fetch` but will use the global fetch client if present. The SDK works in the following
-runtimes:
+The SDK works in the following runtimes:
 
 - Node.js 18+
 - Vercel

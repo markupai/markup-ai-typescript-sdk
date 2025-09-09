@@ -1,8 +1,8 @@
-export * as styleGuides from "./styleGuides";
-export * as styleChecks from "./styleChecks";
-export * as styleSuggestions from "./styleSuggestions";
-export * as styleRewrites from "./styleRewrites";
-export * from "./styleGuides/client/requests";
-export * from "./styleChecks/client/requests";
-export * from "./styleSuggestions/client/requests";
-export * from "./styleRewrites/client/requests";
+export * as styleGuides from "./styleGuides/index.js";
+export * as styleChecks from "./styleChecks/index.js";
+export * as styleSuggestions from "./styleSuggestions/index.js";
+export * as styleRewrites from "./styleRewrites/index.js";
+export * from "./styleGuides/client/requests/index.js";
+export * from "./styleChecks/client/requests/index.js";
+export * from "./styleSuggestions/client/requests/index.js";
+export * from "./styleRewrites/client/requests/index.js";
