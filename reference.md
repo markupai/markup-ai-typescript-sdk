@@ -57,7 +57,7 @@ await client.styleGuides.listStyleGuides();
 </dl>
 </details>
 
-<details><summary><code>client.styleGuides.<a href="/src/api/resources/styleGuides/client/Client.ts">createStyleGuide</a>(file_upload, { ...params }) -> MarkupAI.StyleGuideResponse</code></summary>
+<details><summary><code>client.styleGuides.<a href="/src/api/resources/styleGuides/client/Client.ts">createStyleGuide</a>({ ...params }) -> MarkupAI.StyleGuideResponse</code></summary>
 <dl>
 <dd>
 
@@ -85,7 +85,8 @@ Create a new style guide that can be used in checks, suggestions, and rewrites.
 <dd>
 
 ```typescript
-await client.styleGuides.createStyleGuide(fs.createReadStream("/path/to/your/file"), {
+await client.styleGuides.createStyleGuide({
+    file_upload: fs.createReadStream("/path/to/your/file"),
     name: "name",
 });
 ```
@@ -99,14 +100,6 @@ await client.styleGuides.createStyleGuide(fs.createReadStream("/path/to/your/fil
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**file_upload:** `File | fs.ReadStream | Blob`
-
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -331,7 +324,7 @@ await client.styleGuides.updateStyleGuide("style_guide_id", {
 
 ## Style Checks
 
-<details><summary><code>client.styleChecks.<a href="/src/api/resources/styleChecks/client/Client.ts">createStyleCheck</a>(file_upload, { ...params }) -> MarkupAI.WorkflowResponse</code></summary>
+<details><summary><code>client.styleChecks.<a href="/src/api/resources/styleChecks/client/Client.ts">createStyleCheck</a>({ ...params }) -> MarkupAI.WorkflowResponse</code></summary>
 <dl>
 <dd>
 
@@ -359,7 +352,8 @@ Analyze text for grammar, style, and clarity issues.
 <dd>
 
 ```typescript
-await client.styleChecks.createStyleCheck(fs.createReadStream("/path/to/your/file"), {
+await client.styleChecks.createStyleCheck({
+    file_upload: fs.createReadStream("/path/to/your/file"),
     dialect: "american_english",
     style_guide: "style_guide",
 });
@@ -374,14 +368,6 @@ await client.styleChecks.createStyleCheck(fs.createReadStream("/path/to/your/fil
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**file_upload:** `File | fs.ReadStream | Blob`
-
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -470,7 +456,7 @@ await client.styleChecks.getStyleCheck("workflow_id");
 
 ## Style Suggestions
 
-<details><summary><code>client.styleSuggestions.<a href="/src/api/resources/styleSuggestions/client/Client.ts">createStyleSuggestion</a>(file_upload, { ...params }) -> MarkupAI.WorkflowResponse</code></summary>
+<details><summary><code>client.styleSuggestions.<a href="/src/api/resources/styleSuggestions/client/Client.ts">createStyleSuggestion</a>({ ...params }) -> MarkupAI.WorkflowResponse</code></summary>
 <dl>
 <dd>
 
@@ -498,7 +484,8 @@ Get suggested corrections for text.
 <dd>
 
 ```typescript
-await client.styleSuggestions.createStyleSuggestion(fs.createReadStream("/path/to/your/file"), {
+await client.styleSuggestions.createStyleSuggestion({
+    file_upload: fs.createReadStream("/path/to/your/file"),
     dialect: "american_english",
     style_guide: "style_guide",
 });
@@ -513,14 +500,6 @@ await client.styleSuggestions.createStyleSuggestion(fs.createReadStream("/path/t
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**file_upload:** `File | fs.ReadStream | Blob`
-
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -609,7 +588,7 @@ await client.styleSuggestions.getStyleSuggestion("workflow_id");
 
 ## Style Rewrites
 
-<details><summary><code>client.styleRewrites.<a href="/src/api/resources/styleRewrites/client/Client.ts">createStyleRewrite</a>(file_upload, { ...params }) -> MarkupAI.WorkflowResponse</code></summary>
+<details><summary><code>client.styleRewrites.<a href="/src/api/resources/styleRewrites/client/Client.ts">createStyleRewrite</a>({ ...params }) -> MarkupAI.WorkflowResponse</code></summary>
 <dl>
 <dd>
 
@@ -637,7 +616,8 @@ Rewrite text with style corrections applied.
 <dd>
 
 ```typescript
-await client.styleRewrites.createStyleRewrite(fs.createReadStream("/path/to/your/file"), {
+await client.styleRewrites.createStyleRewrite({
+    file_upload: fs.createReadStream("/path/to/your/file"),
     dialect: "american_english",
     style_guide: "style_guide",
 });
@@ -652,14 +632,6 @@ await client.styleRewrites.createStyleRewrite(fs.createReadStream("/path/to/your
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**file_upload:** `File | fs.ReadStream | Blob`
-
-</dd>
-</dl>
 
 <dl>
 <dd>

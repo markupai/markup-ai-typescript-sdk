@@ -1,4 +1,5 @@
-export * as MarkupAI from "./api";
-export { MarkupAIClient } from "./Client";
-export { MarkupAIEnvironment } from "./environments";
-export { MarkupAIError, MarkupAITimeoutError } from "./errors";
+export * as MarkupAI from "./api/index.js";
+export { MarkupAIError, MarkupAITimeoutError } from "./errors/index.js";
+export { MarkupAIClient } from "./Client.js";
+export { MarkupAIEnvironment } from "./environments.js";
+export * from "./exports.js";

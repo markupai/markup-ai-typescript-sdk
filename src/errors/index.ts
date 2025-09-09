@@ -1,2 +1,2 @@
-export { MarkupAIError } from "./MarkupAIError";
-export { MarkupAITimeoutError } from "./MarkupAITimeoutError";
+export { MarkupAIError } from "./MarkupAIError.js";
+export { MarkupAITimeoutError } from "./MarkupAITimeoutError.js";
