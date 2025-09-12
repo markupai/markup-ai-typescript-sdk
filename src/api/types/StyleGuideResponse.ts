@@ -18,6 +18,6 @@ export interface StyleGuideResponse {
     updated_at?: string;
     /** The ID of the user who last updated the style guide. If null, the style guide has never been updated. */
     updated_by?: string;
-    /** The prompt used to apply a style guide to a document. This should not be displayed to the user. */
-    prompt: string;
+    /** Summarizes the rules and guidelines which will be applied by this style guide. */
+    summary?: string;
 }

@@ -7,7 +7,7 @@ import { MarkupAIClient } from "../../src/Client";
 import * as MarkupAI from "../../src/api/index";
 
 describe("StyleGuides", () => {
-    test("listStyleGuides (26cc1160)", async () => {
+    test("listStyleGuides (ef545be0)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -20,7 +20,7 @@ describe("StyleGuides", () => {
                 status: "completed",
                 updated_at: "2024-01-15T09:30:00Z",
                 updated_by: "updated_by",
-                prompt: "This is the prompt generated for this style guide",
+                summary: "This is the summary generated for this style guide",
             },
             {
                 id: "01971e03-dd27-75ee-9044-b48e654848cf",
@@ -30,7 +30,7 @@ describe("StyleGuides", () => {
                 status: "completed",
                 updated_at: "2024-01-15T09:30:00Z",
                 updated_by: "updated_by",
-                prompt: "This is the prompt generated for this style guide",
+                summary: "This is the summary generated for this style guide",
             },
         ];
         server.mockEndpoint().get("/v1/style-guides").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
@@ -45,7 +45,7 @@ describe("StyleGuides", () => {
                 status: "completed",
                 updated_at: "2024-01-15T09:30:00Z",
                 updated_by: "updated_by",
-                prompt: "This is the prompt generated for this style guide",
+                summary: "This is the summary generated for this style guide",
             },
             {
                 id: "01971e03-dd27-75ee-9044-b48e654848cf",
@@ -55,7 +55,7 @@ describe("StyleGuides", () => {
                 status: "completed",
                 updated_at: "2024-01-15T09:30:00Z",
                 updated_by: "updated_by",
-                prompt: "This is the prompt generated for this style guide",
+                summary: "This is the summary generated for this style guide",
             },
         ]);
     });
@@ -130,7 +130,7 @@ describe("StyleGuides", () => {
         );
     });
 
-    test("getStyleGuide (ba240600)", async () => {
+    test("getStyleGuide (929abcb0)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -142,7 +142,7 @@ describe("StyleGuides", () => {
             status: "completed",
             updated_at: "2024-01-15T09:30:00Z",
             updated_by: "updated_by",
-            prompt: "This is the prompt generated for this style guide",
+            summary: "This is the summary generated for this style guide",
         };
         server
             .mockEndpoint()
@@ -161,7 +161,7 @@ describe("StyleGuides", () => {
             status: "completed",
             updated_at: "2024-01-15T09:30:00Z",
             updated_by: "updated_by",
-            prompt: "This is the prompt generated for this style guide",
+            summary: "This is the summary generated for this style guide",
         });
     });
 
@@ -411,7 +411,7 @@ describe("StyleGuides", () => {
         );
     });
 
-    test("updateStyleGuide (Style Guide Updated)", async () => {
+    test("updateStyleGuide (This is the summary generated for this style guide)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
         const rawRequestBody = { name: "name" };
@@ -423,7 +423,7 @@ describe("StyleGuides", () => {
             status: "running",
             updated_at: "2024-01-15T09:30:00Z",
             updated_by: "updated_by",
-            prompt: "prompt",
+            summary: "summary",
         };
         server
             .mockEndpoint()
@@ -445,7 +445,7 @@ describe("StyleGuides", () => {
             status: "running",
             updated_at: "2024-01-15T09:30:00Z",
             updated_by: "updated_by",
-            prompt: "prompt",
+            summary: "summary",
         });
     });
 
