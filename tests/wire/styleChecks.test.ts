@@ -7,7 +7,7 @@ import { MarkupAIClient } from "../../src/Client";
 import * as MarkupAI from "../../src/api/index";
 
 describe("StyleChecks", () => {
-    test("getStyleCheck (Successful response)", async () => {
+    test("getStyleCheck (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -197,7 +197,7 @@ describe("StyleChecks", () => {
         });
     });
 
-    test("getStyleCheck (In progress)", async () => {
+    test("getStyleCheck (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -262,7 +262,7 @@ describe("StyleChecks", () => {
         });
     });
 
-    test("getStyleCheck (Failed)", async () => {
+    test("getStyleCheck (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -327,7 +327,7 @@ describe("StyleChecks", () => {
         });
     });
 
-    test("getStyleCheck (c373ec14)", async () => {
+    test("getStyleCheck (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -342,16 +342,10 @@ describe("StyleChecks", () => {
 
         await expect(async () => {
             return await client.styleChecks.getStyleCheck("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.UnauthorizedError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.UnauthorizedError);
     });
 
-    test("getStyleCheck (ac5894f8)", async () => {
+    test("getStyleCheck (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -366,16 +360,10 @@ describe("StyleChecks", () => {
 
         await expect(async () => {
             return await client.styleChecks.getStyleCheck("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.ForbiddenError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.ForbiddenError);
     });
 
-    test("getStyleCheck (76280fb0)", async () => {
+    test("getStyleCheck (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -390,16 +378,10 @@ describe("StyleChecks", () => {
 
         await expect(async () => {
             return await client.styleChecks.getStyleCheck("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.NotFoundError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.NotFoundError);
     });
 
-    test("getStyleCheck (f1106515)", async () => {
+    test("getStyleCheck (7)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -414,14 +396,10 @@ describe("StyleChecks", () => {
 
         await expect(async () => {
             return await client.styleChecks.getStyleCheck("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.UnprocessableEntityError({
-                key: "value",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.UnprocessableEntityError);
     });
 
-    test("getStyleCheck (cd976c08)", async () => {
+    test("getStyleCheck (8)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -436,12 +414,6 @@ describe("StyleChecks", () => {
 
         await expect(async () => {
             return await client.styleChecks.getStyleCheck("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.InternalServerError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.InternalServerError);
     });
 });

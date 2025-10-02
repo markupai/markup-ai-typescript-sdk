@@ -4,3 +4,4 @@ export * from "./UnprocessableEntityError.js";
 export * from "./InternalServerError.js";
 export * from "./ContentTooLargeError.js";
 export * from "./NotFoundError.js";
+export * from "./TooManyRequestsError.js";

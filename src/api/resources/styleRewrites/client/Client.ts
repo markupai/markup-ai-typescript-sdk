@@ -54,6 +54,7 @@ export class StyleRewrites {
      * @throws {@link MarkupAI.ForbiddenError}
      * @throws {@link MarkupAI.ContentTooLargeError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
+     * @throws {@link MarkupAI.TooManyRequestsError}
      * @throws {@link MarkupAI.InternalServerError}
      *
      * @example
@@ -136,6 +137,11 @@ export class StyleRewrites {
                     );
                 case 422:
                     throw new MarkupAI.UnprocessableEntityError(_response.error.body as unknown, _response.rawResponse);
+                case 429:
+                    throw new MarkupAI.TooManyRequestsError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
                 case 500:
                     throw new MarkupAI.InternalServerError(
                         _response.error.body as MarkupAI.ErrorResponse,
