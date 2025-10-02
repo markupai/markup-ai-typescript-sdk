@@ -7,7 +7,7 @@ import { MarkupAIClient } from "../../src/Client";
 import * as MarkupAI from "../../src/api/index";
 
 describe("StyleRewrites", () => {
-    test("getStyleRewrite (Successful response)", async () => {
+    test("getStyleRewrite (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -242,7 +242,7 @@ describe("StyleRewrites", () => {
         });
     });
 
-    test("getStyleRewrite (In progress)", async () => {
+    test("getStyleRewrite (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -319,7 +319,7 @@ describe("StyleRewrites", () => {
         });
     });
 
-    test("getStyleRewrite (Failed)", async () => {
+    test("getStyleRewrite (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -396,7 +396,7 @@ describe("StyleRewrites", () => {
         });
     });
 
-    test("getStyleRewrite (c373ec14)", async () => {
+    test("getStyleRewrite (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -411,16 +411,10 @@ describe("StyleRewrites", () => {
 
         await expect(async () => {
             return await client.styleRewrites.getStyleRewrite("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.UnauthorizedError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.UnauthorizedError);
     });
 
-    test("getStyleRewrite (ac5894f8)", async () => {
+    test("getStyleRewrite (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -435,16 +429,10 @@ describe("StyleRewrites", () => {
 
         await expect(async () => {
             return await client.styleRewrites.getStyleRewrite("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.ForbiddenError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.ForbiddenError);
     });
 
-    test("getStyleRewrite (76280fb0)", async () => {
+    test("getStyleRewrite (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -459,16 +447,10 @@ describe("StyleRewrites", () => {
 
         await expect(async () => {
             return await client.styleRewrites.getStyleRewrite("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.NotFoundError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.NotFoundError);
     });
 
-    test("getStyleRewrite (f1106515)", async () => {
+    test("getStyleRewrite (7)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -483,14 +465,10 @@ describe("StyleRewrites", () => {
 
         await expect(async () => {
             return await client.styleRewrites.getStyleRewrite("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.UnprocessableEntityError({
-                key: "value",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.UnprocessableEntityError);
     });
 
-    test("getStyleRewrite (cd976c08)", async () => {
+    test("getStyleRewrite (8)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -505,12 +483,6 @@ describe("StyleRewrites", () => {
 
         await expect(async () => {
             return await client.styleRewrites.getStyleRewrite("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.InternalServerError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.InternalServerError);
     });
 });

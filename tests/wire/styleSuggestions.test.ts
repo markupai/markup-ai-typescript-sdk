@@ -7,7 +7,7 @@ import { MarkupAIClient } from "../../src/Client";
 import * as MarkupAI from "../../src/api/index";
 
 describe("StyleSuggestions", () => {
-    test("getStyleSuggestion (Successful response)", async () => {
+    test("getStyleSuggestion (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -207,7 +207,7 @@ describe("StyleSuggestions", () => {
         });
     });
 
-    test("getStyleSuggestion (In progress)", async () => {
+    test("getStyleSuggestion (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -280,7 +280,7 @@ describe("StyleSuggestions", () => {
         });
     });
 
-    test("getStyleSuggestion (Failed)", async () => {
+    test("getStyleSuggestion (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -353,7 +353,7 @@ describe("StyleSuggestions", () => {
         });
     });
 
-    test("getStyleSuggestion (c373ec14)", async () => {
+    test("getStyleSuggestion (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -368,16 +368,10 @@ describe("StyleSuggestions", () => {
 
         await expect(async () => {
             return await client.styleSuggestions.getStyleSuggestion("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.UnauthorizedError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.UnauthorizedError);
     });
 
-    test("getStyleSuggestion (ac5894f8)", async () => {
+    test("getStyleSuggestion (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -392,16 +386,10 @@ describe("StyleSuggestions", () => {
 
         await expect(async () => {
             return await client.styleSuggestions.getStyleSuggestion("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.ForbiddenError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.ForbiddenError);
     });
 
-    test("getStyleSuggestion (76280fb0)", async () => {
+    test("getStyleSuggestion (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -416,16 +404,10 @@ describe("StyleSuggestions", () => {
 
         await expect(async () => {
             return await client.styleSuggestions.getStyleSuggestion("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.NotFoundError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.NotFoundError);
     });
 
-    test("getStyleSuggestion (f1106515)", async () => {
+    test("getStyleSuggestion (7)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -440,14 +422,10 @@ describe("StyleSuggestions", () => {
 
         await expect(async () => {
             return await client.styleSuggestions.getStyleSuggestion("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.UnprocessableEntityError({
-                key: "value",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.UnprocessableEntityError);
     });
 
-    test("getStyleSuggestion (cd976c08)", async () => {
+    test("getStyleSuggestion (8)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
 
@@ -462,12 +440,6 @@ describe("StyleSuggestions", () => {
 
         await expect(async () => {
             return await client.styleSuggestions.getStyleSuggestion("workflow_id");
-        }).rejects.toThrow(
-            new MarkupAI.InternalServerError({
-                detail: "detail",
-                status: 1,
-                request_id: "request_id",
-            }),
-        );
+        }).rejects.toThrow(MarkupAI.InternalServerError);
     });
 });
