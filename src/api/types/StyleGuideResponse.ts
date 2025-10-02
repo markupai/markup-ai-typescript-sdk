@@ -18,6 +18,6 @@ export interface StyleGuideResponse {
     updated_at?: string;
     /** The ID of the user who last updated the style guide. If null, the style guide has never been updated. */
     updated_by?: string;
-    /** Summarizes the rules and guidelines which will be applied by this style guide. */
+    /** User-friendly summary of the style guide's contents and characteristics */
     summary?: string;
 }
