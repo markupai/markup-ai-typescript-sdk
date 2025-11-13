@@ -372,7 +372,7 @@ await client.styleChecks.createStyleCheck({
 <dl>
 <dd>
 
-**request:** `MarkupAI.CreateStyleCheckV1StyleChecksPostRequest`
+**request:** `MarkupAI.StyleCheckRequestBody`
 
 </dd>
 </dl>
@@ -504,7 +504,7 @@ await client.styleSuggestions.createStyleSuggestion({
 <dl>
 <dd>
 
-**request:** `MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest`
+**request:** `MarkupAI.StyleSuggestionRequestBody`
 
 </dd>
 </dl>
@@ -636,7 +636,7 @@ await client.styleRewrites.createStyleRewrite({
 <dl>
 <dd>
 
-**request:** `MarkupAI.CreateStyleRewriteV1StyleRewritesPostRequest`
+**request:** `MarkupAI.StyleRewriteRequestBody`
 
 </dd>
 </dl>

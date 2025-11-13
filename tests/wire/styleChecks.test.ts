@@ -80,6 +80,7 @@ describe("StyleChecks", () => {
             workflow: {
                 id: "chk-2b5f8d3a-9c7e-4f2b-a8d1-6e9c3f7b4a2d",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2025-01-15T14:22:33Z",
                 status: "completed",
                 type: "checks",
@@ -186,6 +187,7 @@ describe("StyleChecks", () => {
             workflow: {
                 id: "chk-2b5f8d3a-9c7e-4f2b-a8d1-6e9c3f7b4a2d",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2025-01-15T14:22:33Z",
                 status: "completed",
                 type: "checks",
@@ -213,6 +215,7 @@ describe("StyleChecks", () => {
             workflow: {
                 id: "checks-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "running",
                 type: "checks",
@@ -251,6 +254,7 @@ describe("StyleChecks", () => {
             workflow: {
                 id: "checks-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "running",
                 type: "checks",
@@ -278,6 +282,7 @@ describe("StyleChecks", () => {
             workflow: {
                 id: "checks-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "failed",
                 type: "checks",
@@ -316,6 +321,7 @@ describe("StyleChecks", () => {
             workflow: {
                 id: "checks-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "failed",
                 type: "checks",

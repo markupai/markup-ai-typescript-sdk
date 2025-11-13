@@ -21,6 +21,7 @@ describe("StyleGuides", () => {
                 updated_at: "2024-01-15T09:30:00Z",
                 updated_by: "updated_by",
                 summary: "This is the summary generated for this style guide",
+                base_style_guide_type: "ap",
             },
             {
                 id: "01971e03-dd27-75ee-9044-b48e654848cf",
@@ -31,6 +32,7 @@ describe("StyleGuides", () => {
                 updated_at: "2024-01-15T09:30:00Z",
                 updated_by: "updated_by",
                 summary: "This is the summary generated for this style guide",
+                base_style_guide_type: "ap",
             },
         ];
         server.mockEndpoint().get("/v1/style-guides").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
@@ -46,6 +48,7 @@ describe("StyleGuides", () => {
                 updated_at: "2024-01-15T09:30:00Z",
                 updated_by: "updated_by",
                 summary: "This is the summary generated for this style guide",
+                base_style_guide_type: "ap",
             },
             {
                 id: "01971e03-dd27-75ee-9044-b48e654848cf",
@@ -56,6 +59,7 @@ describe("StyleGuides", () => {
                 updated_at: "2024-01-15T09:30:00Z",
                 updated_by: "updated_by",
                 summary: "This is the summary generated for this style guide",
+                base_style_guide_type: "ap",
             },
         ]);
     });
@@ -121,6 +125,7 @@ describe("StyleGuides", () => {
             updated_at: "2024-01-15T09:30:00Z",
             updated_by: "updated_by",
             summary: "This is the summary generated for this style guide",
+            base_style_guide_type: "ap",
         };
         server
             .mockEndpoint()
@@ -140,6 +145,7 @@ describe("StyleGuides", () => {
             updated_at: "2024-01-15T09:30:00Z",
             updated_by: "updated_by",
             summary: "This is the summary generated for this style guide",
+            base_style_guide_type: "ap",
         });
     });
 
@@ -346,6 +352,7 @@ describe("StyleGuides", () => {
             updated_at: "2024-01-15T09:30:00Z",
             updated_by: "updated_by",
             summary: "summary",
+            base_style_guide_type: "ap",
         };
         server
             .mockEndpoint()
@@ -368,6 +375,7 @@ describe("StyleGuides", () => {
             updated_at: "2024-01-15T09:30:00Z",
             updated_by: "updated_by",
             summary: "summary",
+            base_style_guide_type: "ap",
         });
     });
 

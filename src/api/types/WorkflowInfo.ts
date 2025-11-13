@@ -9,6 +9,8 @@ export interface WorkflowInfo {
     id: string;
     /** API version */
     api_version?: string;
+    /** The original name of the file passed into the workflow */
+    filename?: string;
     /** UTC timestamp when the result was generated */
     generated_at?: string;
     status?: MarkupAI.WorkflowStatus;

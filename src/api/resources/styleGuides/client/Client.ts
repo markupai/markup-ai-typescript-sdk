@@ -167,6 +167,10 @@ export class StyleGuides {
         const _request = await core.newFormData();
         await _request.appendFile("file_upload", request.file_upload);
         _request.append("name", request.name);
+        if (request.base_style_guide != null) {
+            _request.append("base_style_guide", request.base_style_guide);
+        }
+
         const _maybeEncodedRequest = await _request.getRequest();
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,

@@ -1,1 +1,1 @@
-export { type CreateStyleCheckV1StyleChecksPostRequest } from "./CreateStyleCheckV1StyleChecksPostRequest.js";
+export { type StyleCheckRequestBody } from "./StyleCheckRequestBody.js";

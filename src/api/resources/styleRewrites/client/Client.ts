@@ -47,7 +47,7 @@ export class StyleRewrites {
     /**
      * Rewrite text with style corrections applied.
      *
-     * @param {MarkupAI.CreateStyleRewriteV1StyleRewritesPostRequest} request
+     * @param {MarkupAI.StyleRewriteRequestBody} request
      * @param {StyleRewrites.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link MarkupAI.UnauthorizedError}
@@ -66,18 +66,17 @@ export class StyleRewrites {
      *     })
      */
     public createStyleRewrite(
-        request: MarkupAI.CreateStyleRewriteV1StyleRewritesPostRequest,
+        request: MarkupAI.StyleRewriteRequestBody,
         requestOptions?: StyleRewrites.RequestOptions,
     ): core.HttpResponsePromise<MarkupAI.WorkflowResponse> {
         return core.HttpResponsePromise.fromPromise(this.__createStyleRewrite(request, requestOptions));
     }
 
     private async __createStyleRewrite(
-        request: MarkupAI.CreateStyleRewriteV1StyleRewritesPostRequest,
+        request: MarkupAI.StyleRewriteRequestBody,
         requestOptions?: StyleRewrites.RequestOptions,
     ): Promise<core.WithRawResponse<MarkupAI.WorkflowResponse>> {
         const _request = await core.newFormData();
-        await _request.appendFile("file_upload", request.file_upload);
         _request.append("dialect", request.dialect);
         if (request.tone != null) {
             _request.append("tone", request.tone);
@@ -88,6 +87,7 @@ export class StyleRewrites {
             _request.append("webhook_url", request.webhook_url);
         }
 
+        await _request.appendFile("file_upload", request.file_upload);
         const _maybeEncodedRequest = await _request.getRequest();
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,

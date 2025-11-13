@@ -47,7 +47,7 @@ export class StyleChecks {
     /**
      * Analyze text for grammar, style, and clarity issues.
      *
-     * @param {MarkupAI.CreateStyleCheckV1StyleChecksPostRequest} request
+     * @param {MarkupAI.StyleCheckRequestBody} request
      * @param {StyleChecks.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link MarkupAI.UnauthorizedError}
@@ -66,18 +66,17 @@ export class StyleChecks {
      *     })
      */
     public createStyleCheck(
-        request: MarkupAI.CreateStyleCheckV1StyleChecksPostRequest,
+        request: MarkupAI.StyleCheckRequestBody,
         requestOptions?: StyleChecks.RequestOptions,
     ): core.HttpResponsePromise<MarkupAI.WorkflowResponse> {
         return core.HttpResponsePromise.fromPromise(this.__createStyleCheck(request, requestOptions));
     }
 
     private async __createStyleCheck(
-        request: MarkupAI.CreateStyleCheckV1StyleChecksPostRequest,
+        request: MarkupAI.StyleCheckRequestBody,
         requestOptions?: StyleChecks.RequestOptions,
     ): Promise<core.WithRawResponse<MarkupAI.WorkflowResponse>> {
         const _request = await core.newFormData();
-        await _request.appendFile("file_upload", request.file_upload);
         _request.append("dialect", request.dialect);
         if (request.tone != null) {
             _request.append("tone", request.tone);
@@ -88,6 +87,7 @@ export class StyleChecks {
             _request.append("webhook_url", request.webhook_url);
         }
 
+        await _request.appendFile("file_upload", request.file_upload);
         const _maybeEncodedRequest = await _request.getRequest();
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,

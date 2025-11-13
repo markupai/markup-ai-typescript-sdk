@@ -1,4 +1,5 @@
 export * from "./AnalysisScore.js";
+export * from "./BaseStyleGuideType.js";
 export * from "./ClarityCategory.js";
 export * from "./ClarityScore.js";
 export * from "./ConfigOptions.js";
