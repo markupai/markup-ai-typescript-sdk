@@ -100,6 +100,7 @@ describe("StyleRewrites", () => {
             workflow: {
                 id: "rewrites-3fa85f64-5717-4562-b3fc-2c963f66afa6",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2025-01-15T15:12:45Z",
                 status: "completed",
                 type: "rewrites",
@@ -231,6 +232,7 @@ describe("StyleRewrites", () => {
             workflow: {
                 id: "rewrites-3fa85f64-5717-4562-b3fc-2c963f66afa6",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2025-01-15T15:12:45Z",
                 status: "completed",
                 type: "rewrites",
@@ -266,6 +268,7 @@ describe("StyleRewrites", () => {
             workflow: {
                 id: "rewrites-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "running",
                 type: "rewrites",
@@ -308,6 +311,7 @@ describe("StyleRewrites", () => {
             workflow: {
                 id: "rewrites-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "running",
                 type: "rewrites",
@@ -343,6 +347,7 @@ describe("StyleRewrites", () => {
             workflow: {
                 id: "rewrites-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "failed",
                 type: "rewrites",
@@ -385,6 +390,7 @@ describe("StyleRewrites", () => {
             workflow: {
                 id: "rewrites-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "failed",
                 type: "rewrites",

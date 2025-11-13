@@ -1,1 +1,1 @@
-export { type CreateStyleRewriteV1StyleRewritesPostRequest } from "./CreateStyleRewriteV1StyleRewritesPostRequest.js";
+export { type StyleRewriteRequestBody } from "./StyleRewriteRequestBody.js";

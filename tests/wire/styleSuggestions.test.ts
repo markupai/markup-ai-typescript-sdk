@@ -85,6 +85,7 @@ describe("StyleSuggestions", () => {
             workflow: {
                 id: "suggestions-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2025-01-15T14:45:12Z",
                 status: "completed",
                 type: "suggestions",
@@ -196,6 +197,7 @@ describe("StyleSuggestions", () => {
             workflow: {
                 id: "suggestions-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2025-01-15T14:45:12Z",
                 status: "completed",
                 type: "suggestions",
@@ -230,6 +232,7 @@ describe("StyleSuggestions", () => {
             workflow: {
                 id: "suggestions-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "running",
                 type: "suggestions",
@@ -269,6 +272,7 @@ describe("StyleSuggestions", () => {
             workflow: {
                 id: "suggestions-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "running",
                 type: "suggestions",
@@ -303,6 +307,7 @@ describe("StyleSuggestions", () => {
             workflow: {
                 id: "suggestions-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "failed",
                 type: "suggestions",
@@ -342,6 +347,7 @@ describe("StyleSuggestions", () => {
             workflow: {
                 id: "suggestions-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
                 api_version: "1.0.0",
+                filename: "filename",
                 generated_at: "2024-01-15T09:30:00Z",
                 status: "failed",
                 type: "suggestions",

@@ -20,4 +20,6 @@ export interface StyleGuideResponse {
     updated_by?: string;
     /** User-friendly summary of the style guide's contents and characteristics */
     summary?: string;
+    /** The base style guide type that this style guide extends (AP, Chicago, or Microsoft). */
+    base_style_guide_type?: MarkupAI.BaseStyleGuideType;
 }

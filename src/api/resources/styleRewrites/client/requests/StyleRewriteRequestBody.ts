@@ -3,8 +3,8 @@
  */
 
 import * as fs from "fs";
-import * as core from "../../../../../core/index.js";
 import * as MarkupAI from "../../../../index.js";
+import * as core from "../../../../../core/index.js";
 
 /**
  * @example
@@ -14,9 +14,7 @@ import * as MarkupAI from "../../../../index.js";
  *         style_guide: "style_guide"
  *     }
  */
-export interface CreateStyleRewriteV1StyleRewritesPostRequest {
-    /** The document to analyze. Text files (.txt), PDFs (.pdf), and Markdown files (.md) are accepted. The max file size is 1.5 MB */
-    file_upload: core.file.Uploadable.FileLike;
+export interface StyleRewriteRequestBody {
     /** The language variant you'd like us to use for analysis. Choose from American English, British English, or other supported dialects. */
     dialect: MarkupAI.Dialects;
     /** The tone variation you're aiming for. Options include formal, academic, casual, and other tone variations to match your content goals. */
@@ -25,4 +23,6 @@ export interface CreateStyleRewriteV1StyleRewritesPostRequest {
     style_guide: string;
     /** A URL that results will be POSTed to once the process completes. */
     webhook_url?: string;
+    /** The document to rewrite. Text (.txt), Markdown (.md), HTML (.html .htm), and DITA (.dita, .xml) files are accepted. The max file size is 1.5 MB. */
+    file_upload: core.file.Uploadable.FileLike;
 }

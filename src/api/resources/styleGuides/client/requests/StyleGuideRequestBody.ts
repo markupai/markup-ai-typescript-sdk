@@ -4,6 +4,7 @@
 
 import * as fs from "fs";
 import * as core from "../../../../../core/index.js";
+import * as MarkupAI from "../../../../index.js";
 
 /**
  * @example
@@ -17,4 +18,6 @@ export interface StyleGuideRequestBody {
     file_upload: core.file.Uploadable.FileLike;
     /** A friendly name for your style guide to help you identify it later. */
     name: string;
+    /** The base style guide to extend (AP, Chicago, or Microsoft). If not provided, the style guide will be created from scratch. */
+    base_style_guide?: MarkupAI.BaseStyleGuideType;
 }

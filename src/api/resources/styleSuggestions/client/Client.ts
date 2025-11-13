@@ -47,7 +47,7 @@ export class StyleSuggestions {
     /**
      * Get suggested corrections for text.
      *
-     * @param {MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest} request
+     * @param {MarkupAI.StyleSuggestionRequestBody} request
      * @param {StyleSuggestions.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link MarkupAI.UnauthorizedError}
@@ -66,18 +66,17 @@ export class StyleSuggestions {
      *     })
      */
     public createStyleSuggestion(
-        request: MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest,
+        request: MarkupAI.StyleSuggestionRequestBody,
         requestOptions?: StyleSuggestions.RequestOptions,
     ): core.HttpResponsePromise<MarkupAI.WorkflowResponse> {
         return core.HttpResponsePromise.fromPromise(this.__createStyleSuggestion(request, requestOptions));
     }
 
     private async __createStyleSuggestion(
-        request: MarkupAI.CreateStyleSuggestionV1StyleSuggestionsPostRequest,
+        request: MarkupAI.StyleSuggestionRequestBody,
         requestOptions?: StyleSuggestions.RequestOptions,
     ): Promise<core.WithRawResponse<MarkupAI.WorkflowResponse>> {
         const _request = await core.newFormData();
-        await _request.appendFile("file_upload", request.file_upload);
         _request.append("dialect", request.dialect);
         if (request.tone != null) {
             _request.append("tone", request.tone);
@@ -88,6 +87,7 @@ export class StyleSuggestions {
             _request.append("webhook_url", request.webhook_url);
         }
 
+        await _request.appendFile("file_upload", request.file_upload);
         const _maybeEncodedRequest = await _request.getRequest();
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
