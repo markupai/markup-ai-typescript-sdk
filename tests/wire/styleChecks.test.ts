@@ -80,7 +80,7 @@ describe("StyleChecks", () => {
             workflow: {
                 id: "chk-2b5f8d3a-9c7e-4f2b-a8d1-6e9c3f7b4a2d",
                 api_version: "1.0.0",
-                filename: "filename",
+                filename: "example_document.txt",
                 generated_at: "2025-01-15T14:22:33Z",
                 status: "completed",
                 type: "checks",
@@ -187,7 +187,7 @@ describe("StyleChecks", () => {
             workflow: {
                 id: "chk-2b5f8d3a-9c7e-4f2b-a8d1-6e9c3f7b4a2d",
                 api_version: "1.0.0",
-                filename: "filename",
+                filename: "example_document.txt",
                 generated_at: "2025-01-15T14:22:33Z",
                 status: "completed",
                 type: "checks",
