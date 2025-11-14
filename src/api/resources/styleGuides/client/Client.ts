@@ -142,6 +142,7 @@ export class StyleGuides {
      *
      * @throws {@link MarkupAI.UnauthorizedError}
      * @throws {@link MarkupAI.ForbiddenError}
+     * @throws {@link MarkupAI.ConflictError}
      * @throws {@link MarkupAI.ContentTooLargeError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
@@ -210,6 +211,11 @@ export class StyleGuides {
                     );
                 case 403:
                     throw new MarkupAI.ForbiddenError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 409:
+                    throw new MarkupAI.ConflictError(
                         _response.error.body as MarkupAI.ErrorResponse,
                         _response.rawResponse,
                     );
@@ -463,6 +469,7 @@ export class StyleGuides {
      * @throws {@link MarkupAI.UnauthorizedError}
      * @throws {@link MarkupAI.ForbiddenError}
      * @throws {@link MarkupAI.NotFoundError}
+     * @throws {@link MarkupAI.ConflictError}
      * @throws {@link MarkupAI.UnprocessableEntityError}
      * @throws {@link MarkupAI.InternalServerError}
      *
@@ -524,6 +531,11 @@ export class StyleGuides {
                     );
                 case 404:
                     throw new MarkupAI.NotFoundError(
+                        _response.error.body as MarkupAI.ErrorResponse,
+                        _response.rawResponse,
+                    );
+                case 409:
+                    throw new MarkupAI.ConflictError(
                         _response.error.body as MarkupAI.ErrorResponse,
                         _response.rawResponse,
                     );

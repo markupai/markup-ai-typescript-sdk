@@ -100,7 +100,7 @@ describe("StyleRewrites", () => {
             workflow: {
                 id: "rewrites-3fa85f64-5717-4562-b3fc-2c963f66afa6",
                 api_version: "1.0.0",
-                filename: "filename",
+                filename: "example_document.txt",
                 generated_at: "2025-01-15T15:12:45Z",
                 status: "completed",
                 type: "rewrites",
@@ -232,7 +232,7 @@ describe("StyleRewrites", () => {
             workflow: {
                 id: "rewrites-3fa85f64-5717-4562-b3fc-2c963f66afa6",
                 api_version: "1.0.0",
-                filename: "filename",
+                filename: "example_document.txt",
                 generated_at: "2025-01-15T15:12:45Z",
                 status: "completed",
                 type: "rewrites",

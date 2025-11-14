@@ -446,6 +446,27 @@ describe("StyleGuides", () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
         const rawRequestBody = { name: "x" };
+        const rawResponseBody = { detail: "detail", status: 1, request_id: "request_id" };
+        server
+            .mockEndpoint()
+            .patch("/v1/style-guides/style_guide_id")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(409)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.styleGuides.updateStyleGuide("style_guide_id", {
+                name: "x",
+            });
+        }).rejects.toThrow(MarkupAI.ConflictError);
+    });
+
+    test("updateStyleGuide (6)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
+        const rawRequestBody = { name: "x" };
         const rawResponseBody = { key: "value" };
         server
             .mockEndpoint()
@@ -463,7 +484,7 @@ describe("StyleGuides", () => {
         }).rejects.toThrow(MarkupAI.UnprocessableEntityError);
     });
 
-    test("updateStyleGuide (6)", async () => {
+    test("updateStyleGuide (7)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
         const rawRequestBody = { name: "x" };
