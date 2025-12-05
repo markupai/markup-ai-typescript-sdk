@@ -5,21 +5,15 @@
 export type ConsistencyCategory =
     | "Consistent Punctuation"
     | "Consistent Capitalization"
-    | "Preferred Spelling and Grammar"
     | "Numbers, Dates, and Times"
     | "Inclusive Language"
-    | "Brand Voice"
     | "Special Style Guide Requirements"
-    | "Clarity and Readability"
     | "other";
 export const ConsistencyCategory = {
     ConsistentPunctuation: "Consistent Punctuation",
     ConsistentCapitalization: "Consistent Capitalization",
-    PreferredSpellingAndGrammar: "Preferred Spelling and Grammar",
     NumbersDatesAndTimes: "Numbers, Dates, and Times",
     InclusiveLanguage: "Inclusive Language",
-    BrandVoice: "Brand Voice",
     SpecialStyleGuideRequirements: "Special Style Guide Requirements",
-    ClarityAndReadability: "Clarity and Readability",
     Other: "other",
 } as const;

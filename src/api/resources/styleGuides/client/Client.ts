@@ -172,6 +172,12 @@ export class StyleGuides {
             _request.append("base_style_guide", request.base_style_guide);
         }
 
+        if (request.terminology_domain_ids != null) {
+            for (const _item of request.terminology_domain_ids) {
+                _request.append("terminology_domain_ids", _item);
+            }
+        }
+
         const _maybeEncodedRequest = await _request.getRequest();
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             this._options?.headers,
@@ -460,10 +466,10 @@ export class StyleGuides {
     }
 
     /**
-     * Update the name of an existing style guide.
+     * Update the name and/or terminology domain IDs of an existing style guide.
      *
      * @param {string} styleGuideId - The ID of the style guide.
-     * @param {MarkupAI.BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch} request
+     * @param {MarkupAI.BodyStyleGuidesUpdateStyleGuide} request
      * @param {StyleGuides.RequestOptions} requestOptions - Request-specific configuration.
      *
      * @throws {@link MarkupAI.UnauthorizedError}
@@ -474,13 +480,11 @@ export class StyleGuides {
      * @throws {@link MarkupAI.InternalServerError}
      *
      * @example
-     *     await client.styleGuides.updateStyleGuide("style_guide_id", {
-     *         name: "name"
-     *     })
+     *     await client.styleGuides.updateStyleGuide("style_guide_id")
      */
     public updateStyleGuide(
         styleGuideId: string,
-        request: MarkupAI.BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch,
+        request: MarkupAI.BodyStyleGuidesUpdateStyleGuide = {},
         requestOptions?: StyleGuides.RequestOptions,
     ): core.HttpResponsePromise<MarkupAI.StyleGuideResponse> {
         return core.HttpResponsePromise.fromPromise(this.__updateStyleGuide(styleGuideId, request, requestOptions));
@@ -488,7 +492,7 @@ export class StyleGuides {
 
     private async __updateStyleGuide(
         styleGuideId: string,
-        request: MarkupAI.BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch,
+        request: MarkupAI.BodyStyleGuidesUpdateStyleGuide = {},
         requestOptions?: StyleGuides.RequestOptions,
     ): Promise<core.WithRawResponse<MarkupAI.StyleGuideResponse>> {
         let _headers: core.Fetcher.Args["headers"] = mergeHeaders(

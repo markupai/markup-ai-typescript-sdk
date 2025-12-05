@@ -8,7 +8,7 @@
  *         name: "name"
  *     }
  */
-export interface BodyUpdateStyleGuideV1StyleGuidesStyleGuideIdPatch {
-    /** The name of the style guide. */
+export interface DomainCreateRequest {
     name: string;
+    description?: string;
 }
