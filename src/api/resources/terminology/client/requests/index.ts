@@ -1,0 +1,9 @@
+export { type BodyTerminologyImportTerminology } from "./BodyTerminologyImportTerminology.js";
+export { type TerminologySearchTerminologyRequest } from "./TerminologySearchTerminologyRequest.js";
+export { type TerminologyListTermSetsRequest } from "./TerminologyListTermSetsRequest.js";
+export { type TermSetCreateRequest } from "./TermSetCreateRequest.js";
+export { type TermSetUpdateRequest } from "./TermSetUpdateRequest.js";
+export { type TermUpdateRequest } from "./TermUpdateRequest.js";
+export { type TerminologyListDomainsRequest } from "./TerminologyListDomainsRequest.js";
+export { type DomainCreateRequest } from "./DomainCreateRequest.js";
+export { type DomainUpdateRequest } from "./DomainUpdateRequest.js";

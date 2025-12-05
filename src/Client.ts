@@ -9,6 +9,7 @@ import { StyleGuides } from "./api/resources/styleGuides/client/Client.js";
 import { StyleChecks } from "./api/resources/styleChecks/client/Client.js";
 import { StyleSuggestions } from "./api/resources/styleSuggestions/client/Client.js";
 import { StyleRewrites } from "./api/resources/styleRewrites/client/Client.js";
+import { Terminology } from "./api/resources/terminology/client/Client.js";
 
 export declare namespace MarkupAIClient {
     export interface Options {
@@ -41,6 +42,7 @@ export class MarkupAIClient {
     protected _styleChecks: StyleChecks | undefined;
     protected _styleSuggestions: StyleSuggestions | undefined;
     protected _styleRewrites: StyleRewrites | undefined;
+    protected _terminology: Terminology | undefined;
 
     constructor(_options: MarkupAIClient.Options) {
         this._options = {
@@ -49,8 +51,8 @@ export class MarkupAIClient {
                 {
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "@markupai/api",
-                    "X-Fern-SDK-Version": "1.2.0",
-                    "User-Agent": "@markupai/api/1.2.0",
+                    "X-Fern-SDK-Version": "1.3.0",
+                    "User-Agent": "@markupai/api/1.3.0",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                 },
@@ -73,5 +75,9 @@ export class MarkupAIClient {
 
     public get styleRewrites(): StyleRewrites {
         return (this._styleRewrites ??= new StyleRewrites(this._options));
+    }
+
+    public get terminology(): Terminology {
+        return (this._terminology ??= new Terminology(this._options));
     }
 }

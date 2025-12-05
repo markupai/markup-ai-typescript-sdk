@@ -22,6 +22,7 @@ describe("StyleGuides", () => {
                 updated_by: "updated_by",
                 summary: "This is the summary generated for this style guide",
                 base_style_guide_type: "ap",
+                terminology_domain_ids: ["223e4567-e89b-12d3-a456-426614174000"],
             },
             {
                 id: "01971e03-dd27-75ee-9044-b48e654848cf",
@@ -33,6 +34,7 @@ describe("StyleGuides", () => {
                 updated_by: "updated_by",
                 summary: "This is the summary generated for this style guide",
                 base_style_guide_type: "ap",
+                terminology_domain_ids: ["terminology_domain_ids"],
             },
         ];
         server.mockEndpoint().get("/v1/style-guides").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
@@ -49,6 +51,7 @@ describe("StyleGuides", () => {
                 updated_by: "updated_by",
                 summary: "This is the summary generated for this style guide",
                 base_style_guide_type: "ap",
+                terminology_domain_ids: ["223e4567-e89b-12d3-a456-426614174000"],
             },
             {
                 id: "01971e03-dd27-75ee-9044-b48e654848cf",
@@ -60,6 +63,7 @@ describe("StyleGuides", () => {
                 updated_by: "updated_by",
                 summary: "This is the summary generated for this style guide",
                 base_style_guide_type: "ap",
+                terminology_domain_ids: ["terminology_domain_ids"],
             },
         ]);
     });
@@ -126,6 +130,7 @@ describe("StyleGuides", () => {
             updated_by: "updated_by",
             summary: "This is the summary generated for this style guide",
             base_style_guide_type: "ap",
+            terminology_domain_ids: ["223e4567-e89b-12d3-a456-426614174000", "323e4567-e89b-12d3-a456-426614174000"],
         };
         server
             .mockEndpoint()
@@ -146,6 +151,7 @@ describe("StyleGuides", () => {
             updated_by: "updated_by",
             summary: "This is the summary generated for this style guide",
             base_style_guide_type: "ap",
+            terminology_domain_ids: ["223e4567-e89b-12d3-a456-426614174000", "323e4567-e89b-12d3-a456-426614174000"],
         });
     });
 
@@ -342,7 +348,7 @@ describe("StyleGuides", () => {
     test("updateStyleGuide (1)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
-        const rawRequestBody = { name: "name" };
+        const rawRequestBody = {};
         const rawResponseBody = {
             id: "id",
             name: "My Custom Style Guide",
@@ -353,6 +359,7 @@ describe("StyleGuides", () => {
             updated_by: "updated_by",
             summary: "summary",
             base_style_guide_type: "ap",
+            terminology_domain_ids: ["terminology_domain_ids"],
         };
         server
             .mockEndpoint()
@@ -363,9 +370,7 @@ describe("StyleGuides", () => {
             .jsonBody(rawResponseBody)
             .build();
 
-        const response = await client.styleGuides.updateStyleGuide("style_guide_id", {
-            name: "name",
-        });
+        const response = await client.styleGuides.updateStyleGuide("style_guide_id");
         expect(response).toEqual({
             id: "id",
             name: "My Custom Style Guide",
@@ -376,13 +381,14 @@ describe("StyleGuides", () => {
             updated_by: "updated_by",
             summary: "summary",
             base_style_guide_type: "ap",
+            terminology_domain_ids: ["terminology_domain_ids"],
         });
     });
 
     test("updateStyleGuide (2)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
-        const rawRequestBody = { name: "x" };
+        const rawRequestBody = {};
         const rawResponseBody = { detail: "detail", status: 1, request_id: "request_id" };
         server
             .mockEndpoint()
@@ -394,16 +400,14 @@ describe("StyleGuides", () => {
             .build();
 
         await expect(async () => {
-            return await client.styleGuides.updateStyleGuide("style_guide_id", {
-                name: "x",
-            });
+            return await client.styleGuides.updateStyleGuide("style_guide_id");
         }).rejects.toThrow(MarkupAI.UnauthorizedError);
     });
 
     test("updateStyleGuide (3)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
-        const rawRequestBody = { name: "x" };
+        const rawRequestBody = {};
         const rawResponseBody = { detail: "detail", status: 1, request_id: "request_id" };
         server
             .mockEndpoint()
@@ -415,16 +419,14 @@ describe("StyleGuides", () => {
             .build();
 
         await expect(async () => {
-            return await client.styleGuides.updateStyleGuide("style_guide_id", {
-                name: "x",
-            });
+            return await client.styleGuides.updateStyleGuide("style_guide_id");
         }).rejects.toThrow(MarkupAI.ForbiddenError);
     });
 
     test("updateStyleGuide (4)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
-        const rawRequestBody = { name: "x" };
+        const rawRequestBody = {};
         const rawResponseBody = { detail: "detail", status: 1, request_id: "request_id" };
         server
             .mockEndpoint()
@@ -436,16 +438,14 @@ describe("StyleGuides", () => {
             .build();
 
         await expect(async () => {
-            return await client.styleGuides.updateStyleGuide("style_guide_id", {
-                name: "x",
-            });
+            return await client.styleGuides.updateStyleGuide("style_guide_id");
         }).rejects.toThrow(MarkupAI.NotFoundError);
     });
 
     test("updateStyleGuide (5)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
-        const rawRequestBody = { name: "x" };
+        const rawRequestBody = {};
         const rawResponseBody = { detail: "detail", status: 1, request_id: "request_id" };
         server
             .mockEndpoint()
@@ -457,16 +457,14 @@ describe("StyleGuides", () => {
             .build();
 
         await expect(async () => {
-            return await client.styleGuides.updateStyleGuide("style_guide_id", {
-                name: "x",
-            });
+            return await client.styleGuides.updateStyleGuide("style_guide_id");
         }).rejects.toThrow(MarkupAI.ConflictError);
     });
 
     test("updateStyleGuide (6)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
-        const rawRequestBody = { name: "x" };
+        const rawRequestBody = {};
         const rawResponseBody = { key: "value" };
         server
             .mockEndpoint()
@@ -478,16 +476,14 @@ describe("StyleGuides", () => {
             .build();
 
         await expect(async () => {
-            return await client.styleGuides.updateStyleGuide("style_guide_id", {
-                name: "x",
-            });
+            return await client.styleGuides.updateStyleGuide("style_guide_id");
         }).rejects.toThrow(MarkupAI.UnprocessableEntityError);
     });
 
     test("updateStyleGuide (7)", async () => {
         const server = mockServerPool.createServer();
         const client = new MarkupAIClient({ token: "test", environment: server.baseUrl });
-        const rawRequestBody = { name: "x" };
+        const rawRequestBody = {};
         const rawResponseBody = { detail: "detail", status: 1, request_id: "request_id" };
         server
             .mockEndpoint()
@@ -499,9 +495,7 @@ describe("StyleGuides", () => {
             .build();
 
         await expect(async () => {
-            return await client.styleGuides.updateStyleGuide("style_guide_id", {
-                name: "x",
-            });
+            return await client.styleGuides.updateStyleGuide("style_guide_id");
         }).rejects.toThrow(MarkupAI.InternalServerError);
     });
 });

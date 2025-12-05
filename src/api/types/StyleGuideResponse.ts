@@ -22,4 +22,6 @@ export interface StyleGuideResponse {
     summary?: string;
     /** The base style guide type that this style guide extends (AP, Chicago, or Microsoft). */
     base_style_guide_type?: MarkupAI.BaseStyleGuideType;
+    /** List of domain IDs to filter terminology searches by. NULL or empty list means no filtering. */
+    terminology_domain_ids?: string[];
 }

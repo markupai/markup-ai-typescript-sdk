@@ -20,4 +20,6 @@ export interface StyleGuideRequestBody {
     name: string;
     /** The base style guide to extend (AP, Chicago, or Microsoft). If not provided, the style guide will be created from scratch. */
     base_style_guide?: MarkupAI.BaseStyleGuideType;
+    /** List of domain IDs to filter terminology searches by. NULL or empty list means no filtering. */
+    terminology_domain_ids?: string[];
 }
