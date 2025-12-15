@@ -24,30 +24,35 @@ describe("StyleChecks", () => {
                         position: { start_index: 89 },
                         subcategory: "Grammar Agreement",
                         category: "grammar",
+                        severity: "high",
                     },
                     {
                         original: "leverage",
                         position: { start_index: 156 },
                         subcategory: "Grammar Agreement",
                         category: "clarity",
+                        severity: "low",
                     },
                     {
                         original: "going forward",
                         position: { start_index: 234 },
                         subcategory: "Grammar Agreement",
                         category: "tone",
+                        severity: "low",
                     },
                     {
                         original: "email",
                         position: { start_index: 312 },
                         subcategory: "Grammar Agreement",
                         category: "consistency",
+                        severity: "medium",
                     },
                     {
                         original: "towards",
                         position: { start_index: 405 },
                         subcategory: "Grammar Agreement",
                         category: "consistency",
+                        severity: "low",
                     },
                 ],
                 scores: {
@@ -114,6 +119,7 @@ describe("StyleChecks", () => {
                         },
                         subcategory: "Grammar Agreement",
                         category: "grammar",
+                        severity: "high",
                     },
                     {
                         original: "leverage",
@@ -122,6 +128,7 @@ describe("StyleChecks", () => {
                         },
                         subcategory: "Grammar Agreement",
                         category: "clarity",
+                        severity: "low",
                     },
                     {
                         original: "going forward",
@@ -130,6 +137,7 @@ describe("StyleChecks", () => {
                         },
                         subcategory: "Grammar Agreement",
                         category: "tone",
+                        severity: "low",
                     },
                     {
                         original: "email",
@@ -138,6 +146,7 @@ describe("StyleChecks", () => {
                         },
                         subcategory: "Grammar Agreement",
                         category: "consistency",
+                        severity: "medium",
                     },
                     {
                         original: "towards",
@@ -146,6 +155,7 @@ describe("StyleChecks", () => {
                         },
                         subcategory: "Grammar Agreement",
                         category: "consistency",
+                        severity: "low",
                     },
                 ],
                 scores: {
@@ -210,7 +220,14 @@ describe("StyleChecks", () => {
                 tone: "academic",
             },
             original: {
-                issues: [{ original: "faze", position: { start_index: 356 }, subcategory: "Grammar Agreement" }],
+                issues: [
+                    {
+                        original: "faze",
+                        position: { start_index: 356 },
+                        subcategory: "Grammar Agreement",
+                        severity: "high",
+                    },
+                ],
             },
             workflow: {
                 id: "checks-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
@@ -248,6 +265,7 @@ describe("StyleChecks", () => {
                             start_index: 356,
                         },
                         subcategory: "Grammar Agreement",
+                        severity: "high",
                     },
                 ],
             },
@@ -277,7 +295,14 @@ describe("StyleChecks", () => {
                 tone: "academic",
             },
             original: {
-                issues: [{ original: "faze", position: { start_index: 356 }, subcategory: "Grammar Agreement" }],
+                issues: [
+                    {
+                        original: "faze",
+                        position: { start_index: 356 },
+                        subcategory: "Grammar Agreement",
+                        severity: "high",
+                    },
+                ],
             },
             workflow: {
                 id: "checks-4a7c8e92-6f3d-4b8a-9c1e-2d5f7a9b3e4c",
@@ -315,6 +340,7 @@ describe("StyleChecks", () => {
                             start_index: 356,
                         },
                         subcategory: "Grammar Agreement",
+                        severity: "high",
                     },
                 ],
             },

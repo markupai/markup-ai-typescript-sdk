@@ -25,6 +25,7 @@ describe("StyleRewrites", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "receive",
                         category: "grammar",
+                        severity: "high",
                     },
                     {
                         original: "data",
@@ -32,6 +33,7 @@ describe("StyleRewrites", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "information",
                         category: "clarity",
+                        severity: "low",
                     },
                     {
                         original: "ok",
@@ -39,6 +41,7 @@ describe("StyleRewrites", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "OK",
                         category: "consistency",
+                        severity: "low",
                     },
                 ],
                 scores: {
@@ -135,6 +138,7 @@ describe("StyleRewrites", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "receive",
                         category: "grammar",
+                        severity: "high",
                     },
                     {
                         original: "data",
@@ -144,6 +148,7 @@ describe("StyleRewrites", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "information",
                         category: "clarity",
+                        severity: "low",
                     },
                     {
                         original: "ok",
@@ -153,6 +158,7 @@ describe("StyleRewrites", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "OK",
                         category: "consistency",
+                        severity: "low",
                     },
                 ],
                 scores: {
@@ -261,6 +267,7 @@ describe("StyleRewrites", () => {
                         position: { start_index: 356 },
                         subcategory: "Grammar Agreement",
                         suggestion: "phase",
+                        severity: "high",
                     },
                 ],
             },
@@ -302,6 +309,7 @@ describe("StyleRewrites", () => {
                         },
                         subcategory: "Grammar Agreement",
                         suggestion: "phase",
+                        severity: "high",
                     },
                 ],
             },
@@ -340,6 +348,7 @@ describe("StyleRewrites", () => {
                         position: { start_index: 356 },
                         subcategory: "Grammar Agreement",
                         suggestion: "phase",
+                        severity: "high",
                     },
                 ],
             },
@@ -381,6 +390,7 @@ describe("StyleRewrites", () => {
                         },
                         subcategory: "Grammar Agreement",
                         suggestion: "phase",
+                        severity: "high",
                     },
                 ],
             },

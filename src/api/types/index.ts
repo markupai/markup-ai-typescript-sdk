@@ -23,6 +23,7 @@ export * from "./QualityScore.js";
 export * from "./RewriteContent.js";
 export * from "./RewriteResponse.js";
 export * from "./ScoreOutput.js";
+export * from "./Severity.js";
 export * from "./StyleCheckResponse.js";
 export * from "./StyleGuide.js";
 export * from "./StyleGuideResponse.js";
