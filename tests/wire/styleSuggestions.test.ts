@@ -25,6 +25,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "receive",
                         category: "grammar",
+                        severity: "high",
                     },
                     {
                         original: "utilize",
@@ -32,6 +33,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "use",
                         category: "clarity",
+                        severity: "low",
                     },
                     {
                         original: "In order to",
@@ -39,6 +41,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "To",
                         category: "clarity",
+                        severity: "low",
                     },
                     {
                         original: "e-mail",
@@ -46,6 +49,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "email",
                         category: "consistency",
+                        severity: "medium",
                     },
                     {
                         original: "OK",
@@ -53,6 +57,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "okay",
                         category: "consistency",
+                        severity: "low",
                     },
                 ],
                 scores: {
@@ -120,6 +125,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "receive",
                         category: "grammar",
+                        severity: "high",
                     },
                     {
                         original: "utilize",
@@ -129,6 +135,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "use",
                         category: "clarity",
+                        severity: "low",
                     },
                     {
                         original: "In order to",
@@ -138,6 +145,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "To",
                         category: "clarity",
+                        severity: "low",
                     },
                     {
                         original: "e-mail",
@@ -147,6 +155,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "email",
                         category: "consistency",
+                        severity: "medium",
                     },
                     {
                         original: "OK",
@@ -156,6 +165,7 @@ describe("StyleSuggestions", () => {
                         subcategory: "Grammar Agreement",
                         suggestion: "okay",
                         category: "consistency",
+                        severity: "low",
                     },
                 ],
                 scores: {
@@ -226,6 +236,7 @@ describe("StyleSuggestions", () => {
                         position: { start_index: 356 },
                         subcategory: "Grammar Agreement",
                         suggestion: "phase",
+                        severity: "high",
                     },
                 ],
             },
@@ -266,6 +277,7 @@ describe("StyleSuggestions", () => {
                         },
                         subcategory: "Grammar Agreement",
                         suggestion: "phase",
+                        severity: "high",
                     },
                 ],
             },
@@ -301,6 +313,7 @@ describe("StyleSuggestions", () => {
                         position: { start_index: 356 },
                         subcategory: "Grammar Agreement",
                         suggestion: "phase",
+                        severity: "high",
                     },
                 ],
             },
@@ -341,6 +354,7 @@ describe("StyleSuggestions", () => {
                         },
                         subcategory: "Grammar Agreement",
                         suggestion: "phase",
+                        severity: "high",
                     },
                 ],
             },

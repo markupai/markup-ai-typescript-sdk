@@ -14,6 +14,7 @@ export interface Suggestion {
     /** The suggested replacement text */
     suggestion: string;
     category?: MarkupAI.IssueCategory;
+    severity: MarkupAI.Severity;
 }
 
 export namespace Suggestion {

@@ -12,6 +12,7 @@ export interface Issue {
     /** The sub-category of the change */
     subcategory: Issue.Subcategory;
     category?: MarkupAI.IssueCategory;
+    severity: MarkupAI.Severity;
 }
 
 export namespace Issue {
