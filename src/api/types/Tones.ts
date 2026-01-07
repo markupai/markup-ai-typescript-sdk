@@ -10,6 +10,7 @@ export type Tones =
     | "engaging"
     | "friendly"
     | "professional"
+    | "style_guide"
     | "technical";
 export const Tones = {
     Academic: "academic",
@@ -19,5 +20,6 @@ export const Tones = {
     Engaging: "engaging",
     Friendly: "friendly",
     Professional: "professional",
+    StyleGuide: "style_guide",
     Technical: "technical",
 } as const;

@@ -24,4 +24,6 @@ export interface StyleGuideResponse {
     base_style_guide_type?: MarkupAI.BaseStyleGuideType;
     /** List of domain IDs to filter terminology searches by. NULL or empty list means no filtering. */
     terminology_domain_ids?: string[];
+    /** Whether this style guide has a tone prompt defined. */
+    has_tone_prompt?: boolean;
 }
