@@ -23,6 +23,7 @@ describe("StyleGuides", () => {
                 summary: "This is the summary generated for this style guide",
                 base_style_guide_type: "ap",
                 terminology_domain_ids: ["223e4567-e89b-12d3-a456-426614174000"],
+                has_tone_prompt: false,
             },
             {
                 id: "01971e03-dd27-75ee-9044-b48e654848cf",
@@ -35,6 +36,7 @@ describe("StyleGuides", () => {
                 summary: "This is the summary generated for this style guide",
                 base_style_guide_type: "ap",
                 terminology_domain_ids: ["terminology_domain_ids"],
+                has_tone_prompt: false,
             },
         ];
         server.mockEndpoint().get("/v1/style-guides").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
@@ -52,6 +54,7 @@ describe("StyleGuides", () => {
                 summary: "This is the summary generated for this style guide",
                 base_style_guide_type: "ap",
                 terminology_domain_ids: ["223e4567-e89b-12d3-a456-426614174000"],
+                has_tone_prompt: false,
             },
             {
                 id: "01971e03-dd27-75ee-9044-b48e654848cf",
@@ -64,6 +67,7 @@ describe("StyleGuides", () => {
                 summary: "This is the summary generated for this style guide",
                 base_style_guide_type: "ap",
                 terminology_domain_ids: ["terminology_domain_ids"],
+                has_tone_prompt: false,
             },
         ]);
     });
@@ -131,6 +135,7 @@ describe("StyleGuides", () => {
             summary: "This is the summary generated for this style guide",
             base_style_guide_type: "ap",
             terminology_domain_ids: ["223e4567-e89b-12d3-a456-426614174000", "323e4567-e89b-12d3-a456-426614174000"],
+            has_tone_prompt: false,
         };
         server
             .mockEndpoint()
@@ -152,6 +157,7 @@ describe("StyleGuides", () => {
             summary: "This is the summary generated for this style guide",
             base_style_guide_type: "ap",
             terminology_domain_ids: ["223e4567-e89b-12d3-a456-426614174000", "323e4567-e89b-12d3-a456-426614174000"],
+            has_tone_prompt: false,
         });
     });
 
@@ -360,6 +366,7 @@ describe("StyleGuides", () => {
             summary: "summary",
             base_style_guide_type: "ap",
             terminology_domain_ids: ["terminology_domain_ids"],
+            has_tone_prompt: true,
         };
         server
             .mockEndpoint()
@@ -382,6 +389,7 @@ describe("StyleGuides", () => {
             summary: "summary",
             base_style_guide_type: "ap",
             terminology_domain_ids: ["terminology_domain_ids"],
+            has_tone_prompt: true,
         });
     });
 

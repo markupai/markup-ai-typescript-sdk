@@ -51,8 +51,8 @@ export class MarkupAIClient {
                 {
                     "X-Fern-Language": "JavaScript",
                     "X-Fern-SDK-Name": "@markupai/api",
-                    "X-Fern-SDK-Version": "1.4.0",
-                    "User-Agent": "@markupai/api/1.4.0",
+                    "X-Fern-SDK-Version": "1.5.0",
+                    "User-Agent": "@markupai/api/1.5.0",
                     "X-Fern-Runtime": core.RUNTIME.type,
                     "X-Fern-Runtime-Version": core.RUNTIME.version,
                 },
